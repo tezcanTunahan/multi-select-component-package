@@ -12,34 +12,15 @@ type Props = {
 
 export default function SearchBar({ value, setValue, search, onChange, setSearch }: Props) {
   return (
-    <div
-      style={{
-        border: '1px solid #d1d5db',
-        padding: '0.5rem',
-        borderRadius: '0.375rem',
-        minHeight: '3.5rem',
-        marginBottom: '1rem',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '0.5rem',
-        boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      }}>
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', flexWrap: 'wrap' }}>
+    <div className='border border-gray-600 p-2 rounded-md min-h-14 mb-4 flex flex-row  items-center justify-between gap-2  shadow-md'>
+      <div className='flex flex-wrap gap-2'>
+        {/* Show the selected elements in the input */}
         {value?.map((option) => (
           <InputSelectedElement key={option.value} value={option} setValue={setValue} />
         ))}
 
         <input
-          style={{
-            border: 'none',
-            outline: 'none',
-            minWidth: '33.333%',
-            backgroundColor: 'transparent',
-            borderRadius: '0.375rem',
-            padding: '0.5rem 0.75rem',
-          }}
+          className='border-none outline-none min-w-1/3'
           value={search}
           placeholder='Search...'
           onChange={(e) => {

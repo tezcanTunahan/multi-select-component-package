@@ -39,6 +39,8 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "rollup-plugin-postcss": "^4.0.2"
+    "clsx": "^2.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwind-merge": "^2.2.2"
   }
 }

@@ -19,18 +19,11 @@ type Props = {
 };
 
 export default function MultiSelectSearch({ options, value, setValue, errorMessage, loading, onChange }: Props) {
-  // filtered options based on the search value
-
   const [search, setSearch] = useState('');
 
   return (
-    <div
-      style={{
-        width: '100%',
-      }}
-      className='bg-red-400'>
+    <div className='w-full'>
       <SearchBar value={value} setValue={setValue} search={search} setSearch={setSearch} onChange={onChange} />
-
       <SelectList
         options={options}
         value={value}

@@ -16,34 +16,10 @@ export default function InputSelectedElement({ value, setValue }: InputSelectedE
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        padding: '8px 10px',
-        backgroundColor: '#e5e7eb',
-        borderRadius: '2px',
-      }}>
-      <p
-        style={{
-          display: 'flex',
-          minWidth: 'max-content',
-          color: '#374151',
-          fontSize: '14px',
-        }}>
-        {getSubString(value.label, 10)}
-      </p>
+    <div className='flex items-center bg-gray-200 py-[5px] px-[10px] gap-2 rounded-md '>
+      <p className=' text-sm flex min-w-max text-gray-700'>{getSubString(value.label, 10)}</p>
 
-      <button
-        onClick={removeElement}
-        style={{
-          padding: '4px',
-          backgroundColor: '#374151',
-          borderRadius: '15%',
-          border: 'none',
-          color: '#ffffff',
-        }}>
+      <button onClick={removeElement} className='bg-gray-500  px-[7px] text-white rounded-md'>
         x
       </button>
     </div>
