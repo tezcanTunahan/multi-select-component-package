@@ -5,13 +5,13 @@ This is a simple multi-select component package for Next.js typescript tailwindc
 ## Installation
 
 ```bash
-npm install multi-select-component-package
+npm install multi-select-input
 ```
 
 ## Usage
 
 ```tsx
-import { MultiSelect } from 'multi-select-component-package';
+import { MultiSelectInput } from 'multi-select-input';
 
 type SelectOption = {
   value: string;
