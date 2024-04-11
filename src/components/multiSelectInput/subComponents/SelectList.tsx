@@ -29,7 +29,7 @@ export default function SelectList({ options, value, setValue, search, setSearch
         backgroundColor: '#fff',
       }}>
       {search.length > 0 &&
-        options.map((option) => (
+        options.map((option, index) => (
           <button
             id='button'
             style={{
@@ -37,10 +37,12 @@ export default function SelectList({ options, value, setValue, search, setSearch
               alignItems: 'center',
               gap: '8px',
               padding: '8px',
-              backgroundColor: value?.some((opt: any) => opt.value === option.value) ? '#e5e7eb' : '',
+              backgroundColor: value?.some((opt: any) => opt.value === option.value) ? '#e5e7eb' : '#fff',
               border: '1px solid #d1d5db',
               borderRadius: '0.375rem',
               width: '100%',
+              position: 'absolute',
+              top: `${index * 70}px`,
             }}
             key={option.value}
             onClick={() => {

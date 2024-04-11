@@ -23,7 +23,7 @@ export default function InputSelectedElement({ value, setValue }: InputSelectedE
         gap: '8px',
         padding: '8px 10px',
         backgroundColor: '#e5e7eb',
-        borderRadius: '5px',
+        borderRadius: '2px',
       }}>
       <p
         style={{
@@ -40,7 +40,7 @@ export default function InputSelectedElement({ value, setValue }: InputSelectedE
         style={{
           padding: '4px',
           backgroundColor: '#374151',
-          borderRadius: '50%',
+          borderRadius: '15%',
           border: 'none',
           color: '#ffffff',
         }}>
