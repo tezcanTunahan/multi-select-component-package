@@ -76,7 +76,6 @@ export default function SelectList({ options, value, setValue, search, setSearch
         position: 'relative',
         width: '100%',
         zIndex: 999,
-        backgroundColor: '#fff',
       }}>
       {search.length > 0 &&
         options.map((option, index) => (
