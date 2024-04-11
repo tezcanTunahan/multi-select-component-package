@@ -1,16 +1,16 @@
 import React from 'react';
-import { SelectOption } from '../MultiSelectInput';
+import { Option } from '../MultiSelectInput';
 import { getSubString } from '../../../lib/utils';
 
 type InputSelectedElementProps = {
-  value: SelectOption;
-  setValue: React.Dispatch<React.SetStateAction<SelectOption[] | undefined>>;
+  value: Option;
+  setValue: React.Dispatch<React.SetStateAction<Option[]>>;
 };
 
 // Component to show the selected elements in the input
 export default function InputSelectedElement({ value, setValue }: InputSelectedElementProps) {
   const removeElement = () => {
-    setValue((prevValue: SelectOption[] | undefined) => {
+    setValue((prevValue: Option[]) => {
       return prevValue?.filter((opt) => opt.value !== value.value);
     });
   };

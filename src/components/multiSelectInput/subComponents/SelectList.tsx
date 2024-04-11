@@ -1,6 +1,6 @@
 import React from 'react';
 import HighlightSubstring from './HighlightSubstring';
-import { SelectOption } from '../MultiSelectInput';
+import { Option } from '../MultiSelectInput';
 import useKeyboardNavigation from '../../../hooks/useKeyboardNavigation';
 import { cn } from '../../../lib/utils';
 
@@ -10,8 +10,8 @@ type Props = {
   setValue: any;
   search: string;
   setSearch: any;
-  errorMassage: string;
-  loading: boolean;
+  errorMassage?: string;
+  loading?: boolean;
 };
 
 export default function SelectList({ options, value, setValue, search, setSearch, errorMassage, loading }: Props) {
@@ -37,9 +37,9 @@ export default function SelectList({ options, value, setValue, search, setSearch
             style={{ top: `${index * 4}rem` }}
             key={option.value}
             onClick={() => {
-              setValue((prevValue: SelectOption[] | undefined) => {
+              setValue((prevValue: Option[] | undefined) => {
                 setSearch('');
-                if (prevValue?.some((opt: SelectOption) => opt.value === option.value)) {
+                if (prevValue?.some((opt: Option) => opt.value === option.value)) {
                   return prevValue?.filter((opt: any) => opt.value !== option.value);
                 }
                 return [...(prevValue || []), option];

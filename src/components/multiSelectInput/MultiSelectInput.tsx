@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SelectList from './subComponents/SelectList';
 import SearchBar from './subComponents/SearchBar';
 
-export type SelectOption = {
+export type Option = {
   value: string;
   label: string;
   img?: string;
@@ -10,11 +10,11 @@ export type SelectOption = {
 };
 
 type Props = {
-  options: SelectOption[];
-  value?: SelectOption[];
-  setValue: React.Dispatch<React.SetStateAction<SelectOption[] | undefined>>;
-  errorMessage: string;
-  loading: boolean;
+  options: Option[];
+  value: Option[];
+  setValue: React.Dispatch<React.SetStateAction<Option[]>>;
+  errorMessage?: string;
+  loading?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
