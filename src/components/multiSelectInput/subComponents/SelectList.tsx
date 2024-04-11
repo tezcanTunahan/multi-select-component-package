@@ -38,6 +38,7 @@ export default function SelectList({ options, value, setValue, search, setSearch
             key={option.value}
             onClick={() => {
               setValue((prevValue: SelectOption[] | undefined) => {
+                setSearch('');
                 if (prevValue?.some((opt: SelectOption) => opt.value === option.value)) {
                   return prevValue?.filter((opt: any) => opt.value !== option.value);
                 }
