@@ -3,15 +3,17 @@ import HighlightSubstring from './HighlightSubstring';
 import { SelectOption } from '../MultiSelectInput';
 import useKeyboardNavigation from '../../../hooks/useKeyboardNavigation';
 
-type SelectOptionProps = {
-  filteredOptions: any[];
+type Props = {
+  options: any[];
   value: any;
   setValue: any;
   search: string;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setSearch: any;
+  errorMassage: string;
+  loading: boolean;
 };
 
-export default function SelectList({ filteredOptions, value, setValue, search, setSearch }: SelectOptionProps) {
+export default function SelectList({ options, value, setValue, search, setSearch }: Props) {
   // Custom hook to handle keyboard navigation
   useKeyboardNavigation(setSearch);
 
@@ -27,7 +29,7 @@ export default function SelectList({ filteredOptions, value, setValue, search, s
         backgroundColor: '#fff',
       }}>
       {search.length > 0 &&
-        filteredOptions.map((option) => (
+        options.map((option) => (
           <button
             id='button'
             style={{

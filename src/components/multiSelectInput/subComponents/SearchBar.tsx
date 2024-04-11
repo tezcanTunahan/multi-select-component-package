@@ -2,16 +2,15 @@ import React from 'react';
 import InputSelectedElement from './InputSelectedElement';
 import { SelectOption } from '../MultiSelectInput';
 
-type SelectProps = {
-  options: SelectOption[];
+type Props = {
   value?: SelectOption[];
   setValue: React.Dispatch<React.SetStateAction<SelectOption[] | undefined>>;
   search: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
-  setFilteredOptions: React.Dispatch<React.SetStateAction<SelectOption[]>>;
 };
 
-export default function SearchBar({ options, value, setValue, search, setSearch, setFilteredOptions }: SelectProps) {
+export default function SearchBar({ value, setValue, search, onChange, setSearch }: Props) {
   return (
     <div
       style={{
@@ -45,7 +44,7 @@ export default function SearchBar({ options, value, setValue, search, setSearch,
           placeholder='Search...'
           onChange={(e) => {
             setSearch(e.target.value);
-            setFilteredOptions(options.filter((option) => option.label.toLowerCase().includes(e.target.value.toLowerCase())));
+            onChange(e);
           }}
         />
       </div>

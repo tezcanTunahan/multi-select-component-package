@@ -15,11 +15,11 @@ type Props = {
   setValue: React.Dispatch<React.SetStateAction<SelectOption[] | undefined>>;
   errorMessage: string;
   loading: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function MultiSelectSearch({ options, value, setValue, errorMessage, loading }: Props) {
+export default function MultiSelectSearch({ options, value, setValue, errorMessage, loading, onChange }: Props) {
   // filtered options based on the search value
-  const [filteredOptions, setFilteredOptions] = useState(options);
 
   const [search, setSearch] = useState('');
 
@@ -28,8 +28,17 @@ export default function MultiSelectSearch({ options, value, setValue, errorMessa
       style={{
         width: '100%',
       }}>
-      <SearchBar options={options} value={value} setValue={setValue} search={search} setFilteredOptions={setFilteredOptions} setSearch={setSearch} />
-      <SelectList filteredOptions={filteredOptions} value={value} setValue={setValue} search={search} setSearch={setSearch} />
+      <SearchBar value={value} setValue={setValue} search={search} setSearch={setSearch} onChange={onChange} />
+
+      <SelectList
+        options={options}
+        value={value}
+        setValue={setValue}
+        search={search}
+        setSearch={setSearch}
+        errorMassage={errorMessage}
+        loading={loading}
+      />
     </div>
   );
 }
