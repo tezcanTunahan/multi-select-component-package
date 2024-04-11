@@ -13,9 +13,59 @@ type Props = {
   loading: boolean;
 };
 
-export default function SelectList({ options, value, setValue, search, setSearch }: Props) {
+export default function SelectList({ options, value, setValue, search, setSearch, errorMassage, loading }: Props) {
   // Custom hook to handle keyboard navigation
   useKeyboardNavigation(setSearch);
+
+  if (errorMassage) {
+    return (
+      <div
+        style={{
+          color: '#fff',
+          position: 'relative',
+          top: '20px',
+        }}>
+        <p
+          style={{
+            position: 'absolute',
+            top: '50%', // Adjusted positioning to center vertically
+            left: '50%', // Adjusted positioning to center horizontally
+            transform: 'translate(-50%, -50%)', // Centering the message
+            width: '100%', // Make the message full width
+            margin: '0', // Remove default margin
+            padding: '8px', // Add padding to the message
+            backgroundColor: '#f87171',
+          }}>
+          {errorMassage}
+        </p>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          color: '#fff',
+          position: 'relative',
+          top: '20px',
+        }}>
+        <p
+          style={{
+            position: 'absolute',
+            top: '50%', // Adjusted positioning to center vertically
+            left: '50%', // Adjusted positioning to center horizontally
+            transform: 'translate(-50%, -50%)', // Centering the message
+            width: '100%', // Make the message full width
+            margin: '0', // Remove default margin
+            padding: '8px', // Add padding to the message
+            backgroundColor: '#87CEEB',
+          }}>
+          Loading...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <ul
