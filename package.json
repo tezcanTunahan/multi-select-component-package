@@ -1,6 +1,6 @@
 {
   "name": "multi-select-input",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "multiple select input",
   "main": "dist/cjs/index.js",
   "files": [
@@ -24,15 +24,21 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.75",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "react": "^18.2.0",
     "rollup": "^4.14.1",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tailwindcss": "^3.4.3",
     "tslib": "^2.6.2",
     "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }

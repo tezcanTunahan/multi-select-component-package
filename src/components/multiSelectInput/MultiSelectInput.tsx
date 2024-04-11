@@ -27,7 +27,8 @@ export default function MultiSelectSearch({ options, value, setValue, errorMessa
     <div
       style={{
         width: '100%',
-      }}>
+      }}
+      className='bg-red-400'>
       <SearchBar value={value} setValue={setValue} search={search} setSearch={setSearch} onChange={onChange} />
 
       <SelectList
