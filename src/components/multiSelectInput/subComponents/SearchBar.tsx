@@ -1,10 +1,10 @@
 import React from 'react';
 import InputSelectedElement from './InputSelectedElement';
-import { Option } from '../MultiSelectInput';
+import { SelectOption } from '../MultiSelectInput';
 
 type Props = {
-  value?: Option[];
-  setValue: React.Dispatch<React.SetStateAction<Option[]>>;
+  value?: SelectOption[];
+  setValue: React.Dispatch<React.SetStateAction<SelectOption[]>>;
   search: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setSearch: React.Dispatch<React.SetStateAction<string>>;

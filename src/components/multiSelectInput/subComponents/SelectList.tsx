@@ -1,31 +1,38 @@
 import React from 'react';
 import HighlightSubstring from './HighlightSubstring';
-import { Option } from '../MultiSelectInput';
+import { SelectOption } from '../MultiSelectInput';
 import useKeyboardNavigation from '../../../hooks/useKeyboardNavigation';
 import { cn } from '../../../lib/utils';
 
 type Props = {
-  options: any[];
-  value: any;
-  setValue: any;
+  options: SelectOption[];
+  value: SelectOption[];
+  setValue: React.Dispatch<React.SetStateAction<SelectOption[]>>;
   search: string;
-  setSearch: any;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
   errorMassage?: string;
   loading?: boolean;
 };
 
 export default function SelectList({ options, value, setValue, search, setSearch, errorMassage, loading }: Props) {
-  // Custom hook to handle keyboard navigation
   useKeyboardNavigation(setSearch);
 
   if (errorMassage) {
-    return <div className='bg-red-400 p-2 text-white'>{errorMassage}</div>;
+    return (
+      <div className=' text-white relative'>
+        <p className='absolute top-0 bg-red-400 p-2 w-full'>{errorMassage}</p>
+      </div>
+    );
   }
   if (loading) {
-    return <div className='bg-blue-400 p-2 text-white'>Loading...</div>;
+    return (
+      <div className=' text-white relative'>
+        <p className='absolute top-0 bg-sky-400 p-2 w-full'>...loading</p>
+      </div>
+    );
   }
   return (
-    <ul className='flex flex-col gap-2 relative'>
+    <ul className='flex flex-col  relative'>
       {search.length > 0 &&
         options.map((option, index) => (
           <button
@@ -37,12 +44,12 @@ export default function SelectList({ options, value, setValue, search, setSearch
             style={{ top: `${index * 4}rem` }}
             key={option.value}
             onClick={() => {
-              setValue((prevValue: Option[] | undefined) => {
-                setSearch('');
-                if (prevValue?.some((opt: Option) => opt.value === option.value)) {
-                  return prevValue?.filter((opt: any) => opt.value !== option.value);
+              setSearch('');
+              setValue((prevValue: SelectOption[]) => {
+                if (prevValue?.some((opt: SelectOption) => opt.value === option.value)) {
+                  return prevValue?.filter((opt: SelectOption) => opt.value !== option.value);
                 }
-                return [...(prevValue || []), option];
+                return [...prevValue, option];
               });
             }}>
             <img src={option.img} alt={option.label} className='w-10 h-10 rounded-md' />

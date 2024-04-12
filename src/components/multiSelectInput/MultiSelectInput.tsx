@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import SelectList from './subComponents/SelectList';
 import SearchBar from './subComponents/SearchBar';
+import { cn } from '../../lib/utils';
 
-export type Option = {
+export type SelectOption = {
   value: string;
   label: string;
   img?: string;
@@ -10,19 +11,20 @@ export type Option = {
 };
 
 type Props = {
-  options: Option[];
-  value: Option[];
-  setValue: React.Dispatch<React.SetStateAction<Option[]>>;
-  errorMessage?: string;
-  loading?: boolean;
+  options: SelectOption[];
+  value: SelectOption[];
+  setValue: React.Dispatch<React.SetStateAction<SelectOption[]>>;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+  loading?: boolean;
+  errorMessage?: string;
 };
 
-export default function MultiSelectSearch({ options, value, setValue, errorMessage, loading, onChange }: Props) {
-  const [search, setSearch] = useState('');
+export default function MultiSelectInput({ options, errorMessage, loading, onChange, value, setValue, className }: Props) {
+  const [search, setSearch] = useState<string>('');
 
   return (
-    <div className='w-full'>
+    <div className={cn('w-full', className)}>
       <SearchBar value={value} setValue={setValue} search={search} setSearch={setSearch} onChange={onChange} />
       <SelectList
         options={options}

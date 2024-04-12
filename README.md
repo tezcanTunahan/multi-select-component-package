@@ -11,6 +11,8 @@ npm install multi-select-input
 ## Usage
 
 ```tsx
+'use client';
+import React, { useState } from 'react';
 import { MultiSelectInput } from 'multi-select-input';
 
 type SelectOption = {
@@ -42,10 +44,10 @@ const options: SelectOption[] = [
 
 export default function Home() {
   const [value, setValue] = useState<SelectOption[]>([]);
-  const [filterOptions, setFilterOptions] = useState<SelectOption[]>(options);
+  const [filteredOptions, setFilteedrOptions] = useState<SelectOption[]>(options);
 
   return (
-    <div>
+    <div className=' w-screen h-screen flex items-center justify-center'>
       <MultiSelectInput
         value={value}
         setValue={setValue}
@@ -53,11 +55,14 @@ export default function Home() {
         errorMessage={''}
         loading={false}
         onChange={(e) => {
-          setFilteredOptions([...options]);
-          setFilteredOptions((prev) => {
-            return prev.filter((option) => option.label.includes(e.target.value));
+          setFilteedrOptions([...options]);
+          setFilteedrOptions((prev) => {
+            return prev.filter((option) => {
+              return option.label.toLowerCase().includes(e.target.value.toLowerCase());
+            });
           });
         }}
+        className='w-1/2'
       />
     </div>
   );
