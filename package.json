@@ -1,6 +1,6 @@
 {
   "name": "multi-select-input",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "multiple select input",
   "main": "dist/cjs/index.js",
   "files": [
