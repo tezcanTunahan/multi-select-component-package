@@ -52,7 +52,7 @@ export default function SelectList({ options, value, setValue, search, setSearch
                 return [...prevValue, option];
               });
             }}>
-            <img src={option.img} alt={option.label} className='w-10 h-10 rounded-md' />
+            {option.img && <img src={option.img} alt={option.label} className='w-10 h-10 rounded-md' />}
             <div className='flex items-start flex-col'>
               <HighlightSubstring mainString={option.label} substring={search} />
               <p className=' text-sm text-gray-500'>{option.subTitle}</p>
