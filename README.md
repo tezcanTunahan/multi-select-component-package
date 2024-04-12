@@ -1,6 +1,11 @@
 # multi-select-component-package
 
-This is a simple multi-select component package for Next.js typescript tailwindcss projects.
+This is a simple multi-select component package for Next.js typescript tailwind projects. easy to use 
+you can change what you want to do with the manipulate the onChange function I just filter the array you can make an API call etc..
+
+how it looks
+![multi-select-input](https://github.com/tezcanTunahan/multi-select-component-package/assets/84778158/2a02a317-1476-4726-ae8a-8d97d767a6e3)
+
 
 ## Installation
 
