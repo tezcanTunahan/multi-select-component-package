@@ -2,6 +2,8 @@
 
 This is a simple multi-select component package for Next.js typescript tailwind projects. easy to use 
 you can change what you want to do with the manipulate the onChange function I just filter the array you can make an API call etc..
+LIVE DEMO: https://multi-select-component-eight.vercel.app
+GitHub: https://github.com/tezcanTunahan/multi-select-component
 
 https://github.com/tezcanTunahan/multi-select-component-package/assets/84778158/254c426a-ce5b-49d2-9cd5-578624a010bc
 
